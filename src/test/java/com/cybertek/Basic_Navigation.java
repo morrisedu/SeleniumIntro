@@ -27,7 +27,12 @@ public class Basic_Navigation {
         Thread.sleep(3000);
         chrome_driver.navigate().forward();
 
+        chrome_driver.get("https://yahoo.com");
+
         // navigate.refresh()
         chrome_driver.navigate().refresh();
+
+        Thread.sleep(5000);
+        chrome_driver.quit();
     }
 }
