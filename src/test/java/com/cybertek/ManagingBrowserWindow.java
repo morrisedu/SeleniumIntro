@@ -14,6 +14,7 @@ public class ManagingBrowserWindow {
         chrome.get("https://google.com");
 
         // Maximize brwoser window
+
         //chrome.manage().window().maximize();
 
         // Make window full screen
@@ -32,6 +33,15 @@ public class ManagingBrowserWindow {
 
         chrome.quit();
 
+
+
+        chrome.manage().window().maximize();
+
+        // Make window full screen
+        chrome.manage().window().fullscreen();
+
+        // Set window position (Offset, left & top)
+        chrome.manage().window().setPosition(new Point(200, 300));
 
 
         System.out.println("The End");
