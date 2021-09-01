@@ -15,6 +15,7 @@ public class ManagingBrowserWindow {
 
         // Maximize brwoser window
 
+
         //chrome.manage().window().maximize();
 
         // Make window full screen
@@ -32,7 +33,6 @@ public class ManagingBrowserWindow {
         System.out.println("chrome.manage().window().getSize() = " + chrome.manage().window().getSize());
 
         chrome.quit();
-
 
 
         chrome.manage().window().maximize();
