@@ -1,4 +1,4 @@
-package com.cybertek;
+package com.learn.HowTo;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.Dimension;

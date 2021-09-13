@@ -28,6 +28,7 @@ public class Login_Function {
         WebElement userEmail = chrome.findElement(By.id("user-name"));
         String expectedEmail = userEmail.getText();
 
+        // Checks the email that is logged in
         boolean emailIsOkay = expectedEmail.equals("hr27@cybertekschool.com") ? true : false;
 
         chrome.quit();
