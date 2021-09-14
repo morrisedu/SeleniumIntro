@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 import java.util.concurrent.TimeUnit;
 
 public abstract class TestBase {
-    protected WebDriver driver;
+    protected static WebDriver driver;
 
     // Setting up all chrome driver dependencies
     @BeforeEach
