@@ -1,0 +1,16 @@
+WebDriver chrome;
+
+    @BeforeAll
+    public static void webDriverSetup() {
+        WebDriverManager.chromedriver().setup();
+    }
+
+    @BeforeEach
+    public void browserDriver() {
+        chrome = new ChromeDriver();
+    }
+
+    @AfterEach
+    public void closeBrowser() {
+        chrome.quit();
+    }

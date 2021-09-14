@@ -2,8 +2,7 @@ package com.cybertek.tests.day05_css_xpath_junit;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -13,16 +12,25 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class YahooSearch_Test {
-    public static WebDriver chromer() {
-        WebDriverManager.chromedriver().setup();
+    WebDriver chrome;
 
-        return new ChromeDriver();
+    @BeforeAll
+    public static void setupDriver() {
+        WebDriverManager.chromedriver().setup();
+    }
+
+    @BeforeEach
+    public void webDriverSetup() {
+        chrome = new ChromeDriver();
+    }
+
+    @AfterEach
+    public void closeBrowser() {
+        chrome.quit();
     }
 
     @Test
     public void testYahooSearchHomePageTitle() {
-        WebDriver chrome = chromer();
-
         chrome.manage().window().maximize();
 
         chrome.get("https://search.yahoo.com/");
@@ -45,9 +53,6 @@ public class YahooSearch_Test {
             Enter "selenium"
             Hit enter on the keyboard (submit)
          */
-
-        WebDriver chrome = chromer();
-
         chrome.manage().window().maximize();
 
         chrome.get("https://search.yahoo.com/");
