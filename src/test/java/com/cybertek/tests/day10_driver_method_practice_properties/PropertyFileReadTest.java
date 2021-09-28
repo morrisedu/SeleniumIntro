@@ -6,7 +6,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
-import static com.cybertek.utilities.ConfigReader.read;
+import static com.cybertek.utilities.ConfigReader.confRead;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PropertyFileReadTest {
@@ -52,8 +52,8 @@ public class PropertyFileReadTest {
 
     @Test
     public void testReadingUsingUlitityClass() {
-        System.out.println("read(\"hello\") = " + read("hello"));
+        System.out.println("read(\"hello\") = " + confRead("hello"));
 
-        assertEquals("world", read("hello"));
+        assertEquals("world", confRead("hello"));
     }
 }

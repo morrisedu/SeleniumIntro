@@ -24,7 +24,7 @@ public class ConfigReader {
     *   @param
     *   @return the value of the key provided
      */
-    public static String read(String key) {
+    public static String confRead(String key) {
         return properties.getProperty(key);
     }
 }

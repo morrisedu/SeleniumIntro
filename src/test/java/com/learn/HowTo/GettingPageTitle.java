@@ -1,20 +1,17 @@
 package com.learn.HowTo;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import com.cybertek.utilities.TestBase;
+import org.junit.jupiter.api.Test;
 
-public class GettingPageTitle {
-    public static void main(String[] args) {
-        WebDriverManager.chromedriver().setup();
-        WebDriver chrome = new ChromeDriver();
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-        chrome.get("file:///home/miro/Desktop/TemplateWebsites/veggie/index.html");
+public class GettingPageTitle extends TestBase {
+    @Test
+    public void test_GetPageTitle() {
+        driver.get("https://google.com");
 
-        String currentPageTitle = chrome.getTitle();
+        String currentPageTitle = driver.getTitle();
 
-        System.out.println(currentPageTitle);
-
-        chrome.quit();
+        assertEquals("Google", currentPageTitle);
     }
 }
