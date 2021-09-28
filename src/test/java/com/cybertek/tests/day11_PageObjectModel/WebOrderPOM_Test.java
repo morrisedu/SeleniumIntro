@@ -7,19 +7,33 @@ import org.junit.jupiter.api.Test;
 import static com.cybertek.utilities.BrowserUtil.waitFor;
 import static com.cybertek.utilities.ConfigReader.confRead;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class WebOrderPOM_Test extends TestBase {
+    WLoginPage loginPage = new WLoginPage();
+
     @Test
     public void test_LoginUtilizingPOM() {
-        driver.get("http://secure.smartbearsoftware.com/samples/TestComplete11/WebOrders/Login.aspx");
+        loginPage.goTo();
 
-        WLoginPage loginPage = new WLoginPage();
+//        loginPage.username_field.sendKeys(confRead("weborder_username"));
+//        loginPage.password_field.sendKeys(confRead("weborder_password"));
+//        loginPage.login_btn.click();
 
-        loginPage.username_field.sendKeys(confRead("weborder_username"));
-        loginPage.password_field.sendKeys(confRead("weborder_password"));
-        loginPage.login_btn.click();
+        loginPage.login(confRead("weborder_username"), confRead("weborder_password"));
+
         waitFor(4);
 
         assertEquals("Web Orders", driver.getTitle());
+    }
+
+    @Test
+    public void test_WrongLoginCredentials() {
+        loginPage.goTo();
+
+        loginPage.login("test", "test");
+        waitFor(5);
+
+        assertTrue(loginPage.loginError());
     }
 }

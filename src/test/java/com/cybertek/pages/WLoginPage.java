@@ -17,6 +17,10 @@ public class WLoginPage {
     @FindBy(css = "#ctl00_MainContent_login_button")
     public WebElement login_btn;
 
+    @FindBy(xpath = "//span[.='Invalid Login or Password.']")
+    public WebElement error_msg;
+
+
     /**
      * The constructor below instructs Selenium to start looking for defined elements when called
      */
@@ -31,7 +35,6 @@ public class WLoginPage {
 
     /**
      * goTo method, navigates to login page
-     * @noparam
      * Uses config.properties file
      */
     public void goTo() {
@@ -44,6 +47,16 @@ public class WLoginPage {
      * @param password password
      */
     public void login(String username, String password) {
-
+        this.username_field.sendKeys(username);
+        this.password_field.sendKeys(password);
+        this.login_btn.click();
     }
+
+    /**
+     * Checks whether wrong credentials are provided
+     */
+    public boolean loginError() {
+        return this.error_msg.isDisplayed();
+    }
+
 }
