@@ -19,13 +19,14 @@ public abstract class TestBase {
 //        chrome.manage().window().maximize();
 
         // Using the WebDriverFactory, you can call any driver
-        driver = WebDriverFactory.getDriver("chrome");
+        driver = Driver.getDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         // Waits a maximum of 10 seconds for an element to be found before throwing an error
+
     }
 
     @AfterEach
     public void closeBrowser() {
-        driver.quit();
+        Driver.closeBrowser();
     }
 }
